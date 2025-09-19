@@ -34,6 +34,9 @@ gem 'devise'
 # For connecting to the musiportal_api database
 gem 'dotenv-rails'
 
+# SCSS processor for Active Admin
+gem 'sassc-rails'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 
