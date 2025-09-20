@@ -59,4 +59,12 @@ class Similarity < ApplicationRecord
       }
     ))
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "created_by_id", "id", "id_value", "source_id", "source_type", "target_id", "target_type", "updated_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["created_by", "source", "target"]
+  end
 end

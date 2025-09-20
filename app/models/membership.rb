@@ -154,4 +154,11 @@ class Membership < ApplicationRecord
   def set_left_at
     self.left_at = Time.current if left_at.blank?
   end
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "user_id", "group_id", "status", "roles", "created_at", "updated_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["user", "group"]
+  end
 end

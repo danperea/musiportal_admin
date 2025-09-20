@@ -199,6 +199,17 @@ class Group < ApplicationRecord
     videos
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "name", "type", "bio", "description", "location", "zipCode", "website",
+     "email", "phone", "verified", "created_at", "updated_at", "image_url", "genres",
+     "latitude", "longitude", "vibes", "demo_video_url", "featured_videos",
+     "group_pictures", "video_data", "deleted_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["users", "memberships", "events"]
+  end
+
   private
 
   def member_count

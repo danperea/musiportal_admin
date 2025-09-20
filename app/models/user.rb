@@ -218,5 +218,13 @@ class User < ApplicationRecord
 
     videos
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "name", "email", "location", "bio", "phone", "created_at", "updated_at", "active_group_id"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["groups", "events", "memberships", "active_group"]
+  end
 end
 

@@ -28,4 +28,12 @@ class EventPlanner < Group
   def self.specializing_in(event_type)
     where("description ILIKE ? OR bio ILIKE ?", "%#{event_type}%", "%#{event_type}%")
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "name", "bio", "location", "created_at", "updated_at", "type", "description", "website", "email", "phone", "verified", "image_url", "genres", "latitude", "longitude", "vibes", "zipCode", "demo_video_url", "featured_videos", "group_pictures", "video_data", "deleted_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["users", "memberships", "events", "gigs"]
+  end
 end
