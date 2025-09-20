@@ -10,6 +10,14 @@ class GigApplication < ApplicationRecord
   # Validation to ensure user is a member of the group when applying on behalf of group
   validate :user_must_be_group_member, if: :group_id?
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "gig_id", "group_id", "id", "id_value", "message", "offer_amount", "status", "updated_at", "user_id"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["gig", "user", "group"]
+  end
+
   private
 
   def user_must_be_group_member
